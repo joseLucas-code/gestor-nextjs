@@ -1,14 +1,15 @@
 "use client";
 
+import { useLoginController } from "@/components/auth/login.controller";
+import LoginForm from "@/components/auth/login_form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input/input";
-import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Aperture, Lock, Mail, Phone, UserRound } from "lucide-react";
-import Link from "next/link";
+import { Lock, Mail, Phone, UserRound } from "lucide-react";
 
 export default function Home() {
+  const { onSubmitLogin, formLogin, formState } = useLoginController();
   return (
     <div className="flex-1 bg-[url(/cat_bg.png)] bg-cover bg-center">
       <div className="flex h-full w-full items-center justify-center px-2 backdrop-blur-xl">
@@ -21,41 +22,11 @@ export default function Home() {
             <TabsTrigger value="register">Cadastre-se</TabsTrigger>
           </TabsList>
           <TabsContent value="login">
-            <Card>
-              <CardContent className="flex flex-col space-y-6">
-                <Input
-                  IconName={Mail}
-                  name="email"
-                  id="email"
-                  label="Email"
-                  placeholder="Digite seu email"
-                />
-                <Input
-                  IconName={Lock}
-                  type="password"
-                  name="password"
-                  id="password"
-                  label="Senha"
-                  placeholder="Digite sua senha"
-                />
-                <Link
-                  href="/password_lost"
-                  className="w-fit self-end font-semibold"
-                >
-                  Esqueci minha senha
-                </Link>
-                <Button>Login</Button>
-                <div className="flex w-full items-center gap-4">
-                  <Separator />
-                  <span>Ou</span>
-                  <Separator />
-                </div>
-                <Button variant="outline">
-                  <Aperture />
-                  <span>Continuar com google</span>
-                </Button>
-              </CardContent>
-            </Card>
+            <LoginForm
+              formLogin={formLogin}
+              onSubmitLogin={onSubmitLogin}
+              formState={formState}
+            />
           </TabsContent>
           <TabsContent value="register">
             <Card>
@@ -64,21 +35,18 @@ export default function Home() {
                   IconName={Mail}
                   name="email"
                   id="email"
-                  label="Email"
                   placeholder="Digite seu email"
                 />
                 <Input
                   IconName={UserRound}
                   name="name"
                   id="name"
-                  label="Nome"
                   placeholder="Digite seu nome"
                 />
                 <Input
                   IconName={Phone}
                   name="phone"
                   id="phone"
-                  label="Telefone"
                   placeholder="Digite seu telefone"
                 />
                 <Input
@@ -86,7 +54,6 @@ export default function Home() {
                   type="password"
                   name="password"
                   id="password"
-                  label="Senha"
                   placeholder="Digite sua senha"
                 />
                 <Input
@@ -94,7 +61,6 @@ export default function Home() {
                   type="password"
                   name="repassword"
                   id="repassword"
-                  label="Confirme sua senha"
                   placeholder="Confirme a senha"
                 />
                 <Button>Cadastrar-se</Button>
