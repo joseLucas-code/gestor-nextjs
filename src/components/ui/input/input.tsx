@@ -5,11 +5,10 @@ import { InputProps } from "./types";
 import { Eye, EyeClosed } from "lucide-react";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ IconName, id, label, type = "text", ...props }, ref) => {
+  ({ IconName, id, type = "text", ...props }, ref) => {
     const [isVisible, setIsVisible] = useState(false);
     return (
       <div className="flex flex-col gap-1">
-        {label && <label htmlFor={id}>{label}</label>}
         <label
           className="shadow-default focus-within:border-primary/80 focus-within:bg-primary/10 relative flex w-full items-center gap-2 rounded-sm border-2 px-3 py-2 transition-[border,bg]"
           htmlFor={id}
@@ -19,7 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             id={id}
             ref={ref}
             type={type !== "password" ? type : isVisible ? "text" : "password"}
-            className="text-foreground w-full focus:border-none focus:bg-none focus:outline-none"
+            className="text-foreground w-full bg-transparent focus:border-none focus:bg-none focus:outline-none"
             {...props}
           />
 
