@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
-import { forwardRef, useState } from 'react';
-import { InputProps } from './types';
-import { Eye, EyeClosed } from 'lucide-react';
+import { forwardRef, useState } from "react";
+import { InputProps } from "./types";
+import { Eye, EyeClosed } from "lucide-react";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ IconName, id, label, type = 'text', ...props }, ref) => {
+  ({ IconName, id, label, type = "text", ...props }, ref) => {
     const [isVisible, setIsVisible] = useState(false);
     return (
       <div className="flex flex-col gap-1">
         {label && <label htmlFor={id}>{label}</label>}
         <label
-          className="relative flex gap-2 rounded-sm items-center border-2 shadow-default w-full px-3 py-2 focus-within:border-primary/80 transition-[border,bg] focus-within:bg-primary/10 "
+          className="shadow-default focus-within:border-primary/80 focus-within:bg-primary/10 relative flex w-full items-center gap-2 rounded-sm border-2 px-3 py-2 transition-[border,bg]"
           htmlFor={id}
         >
-          <IconName className="text-zinc-900 size-6" />
+          <IconName className="size-6 text-zinc-900" />
           <input
             id={id}
             ref={ref}
-            type={type !== 'password' ? type : isVisible ? 'text' : 'password'}
-            className="focus:bg-none focus:border-none focus:outline-none text-foreground w-full"
+            type={type !== "password" ? type : isVisible ? "text" : "password"}
+            className="text-foreground w-full focus:border-none focus:bg-none focus:outline-none"
             {...props}
           />
 
-          {type === 'password' && (
+          {type === "password" && (
             <button className="size-7" onClick={() => setIsVisible(!isVisible)}>
               {isVisible ? (
                 <Eye className="size-full" />
@@ -38,4 +38,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";
