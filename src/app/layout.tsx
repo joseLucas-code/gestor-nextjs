@@ -27,7 +27,7 @@ export default function RootLayout({
           toastOptions={{
             classNames: {
               success: "!bg-emerald-700 !text-zinc-200 !border-none",
-              error: "!bg-red-700 !text-zinc-200 !border-none",
+              error: "!bg-red-700 !text-zinc-200 !border-none ",
             },
           }}
         />
