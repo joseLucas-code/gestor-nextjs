@@ -3,8 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input/input';
+import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Lock, Mail } from 'lucide-react';
+import { Aperture, Lock, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,9 +13,9 @@ export default function Home() {
     <div className="flex-1 bg-[url(/cat_bg.png)] bg-cover bg-center ">
       <Tabs
         defaultValue="login"
-        className="backdrop-blur-md w-full h-full flex items-center justify-center px-2"
+        className="backdrop-blur-md  w-full h-full flex items-center justify-center px-2"
       >
-        <div className="p-2 bg-zinc-950 border border-border rounded-md w-full space-y-3">
+        <div className="p-2 bg-zinc-950 border border-border rounded-md max-w-md w-full space-y-3">
           <TabsList className="w-full">
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="register">Cadastre-se</TabsTrigger>
@@ -44,6 +45,15 @@ export default function Home() {
                   Esqueci minha senha
                 </Link>
                 <Button>Login</Button>
+                <div className="flex gap-4 w-full items-center">
+                  <Separator />
+                  <span>Ou</span>
+                  <Separator />
+                </div>
+                <Button variant="outline">
+                  <Aperture />
+                  <span>Continuar com google</span>
+                </Button>
               </CardContent>
             </Card>
           </TabsContent>
