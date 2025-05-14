@@ -22,7 +22,7 @@ export default function LoginForm() {
     <Form {...form}>
       <Card>
         <CardContent className="flex flex-col gap-6">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <FormField
               control={form.control}
               name="email"
@@ -62,7 +62,7 @@ export default function LoginForm() {
             ></FormField>
             <Link
               href="/password_lost"
-              className="w-fit self-end font-semibold"
+              className="w-fit self-end text-sm font-semibold"
             >
               Esqueci minha senha
             </Link>
