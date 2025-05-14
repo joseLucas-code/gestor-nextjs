@@ -6,7 +6,6 @@ import { Input } from "../ui/input/input";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-import { LoginFormProps } from "./types";
 import {
   Form,
   FormControl,
@@ -15,22 +14,17 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
+import { useLoginController } from "./login.controller";
 
-export default function LoginForm({
-  formLogin,
-  onSubmitLogin,
-  formState,
-}: LoginFormProps) {
+export default function LoginForm() {
+  const { handleSubmit, form, formState } = useLoginController();
   return (
-    <Form {...formLogin}>
+    <Form {...form}>
       <Card>
         <CardContent className="flex flex-col gap-6">
-          <form
-            onSubmit={formLogin.handleSubmit(onSubmitLogin)}
-            className="flex flex-col gap-4"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <FormField
-              control={formLogin.control}
+              control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
@@ -48,7 +42,7 @@ export default function LoginForm({
               )}
             ></FormField>
             <FormField
-              control={formLogin.control}
+              control={form.control}
               name="password"
               render={({ field }) => (
                 <FormItem>

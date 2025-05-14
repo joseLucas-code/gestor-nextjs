@@ -1,3 +1,5 @@
+"use client";
+
 import { signinSchema, SignInSchemaType } from "@/schemas/signinSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,22 +19,19 @@ export function useLoginController() {
     try {
       const res = await loginAction(data);
 
-      if (res && !res.ok)
-        throw new Error(res.message ?? "Error ao realizar login");
+      if (!res.ok) throw new Error(res.message ?? "Error ao realizar login");
 
-      toast.success("Login realizado com sucesso", {
-        className: "bg-emerald-600",
-      });
+      toast.success("Login realizado com sucesso");
     } catch (error) {
       if (error instanceof Error) {
-        toast.error(error.message);
+        toast.error(error.message || "Error interno");
       }
     }
   };
 
   return {
-    onSubmitLogin: onSubmit,
-    formLogin: form,
+    handleSubmit: form.handleSubmit(onSubmit),
+    form,
     formState: form.formState,
   };
 }
