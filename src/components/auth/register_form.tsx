@@ -96,7 +96,7 @@ export default function RegisterForm() {
             />
             <FormField
               control={form.control}
-              name="password"
+              name="repassword"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirme sua senha</FormLabel>
