@@ -5,10 +5,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function Home() {
   return (
     <div className="flex-1 bg-[url(/cat_bg.png)] bg-cover bg-center">
-      <div className="flex h-full w-full items-center justify-center px-2 backdrop-blur-xl">
+      <div className="flex h-full w-full items-center justify-center p-2 backdrop-blur-xl">
         <Tabs
           defaultValue="login"
-          className="border-border w-sm rounded-md border bg-zinc-950 p-2"
+          className="border-border w-full max-w-sm rounded-md border bg-zinc-950 p-2"
         >
           <TabsList className="w-full">
             <TabsTrigger value="login">Login</TabsTrigger>
