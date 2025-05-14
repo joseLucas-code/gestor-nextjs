@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const singupSchema = z
+export const signupSchema = z
   .object({
     email: z.string().email({ message: "Email inválido!" }),
     name: z
@@ -28,4 +28,4 @@ export const singupSchema = z
     path: ["repassword"],
   });
 
-export type SignupSchema = z.infer<typeof singupSchema>;
+export type SignupSchemaType = z.infer<typeof signupSchema>;
