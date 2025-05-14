@@ -1,37 +1,30 @@
 "use server";
 
-import { SignInSchemaType } from "@/schemas/signinSchema";
+import { SignupSchemaType } from "@/schemas/signupSchema";
 import { cookies } from "next/headers";
 
-export async function loginAction(data: SignInSchemaType) {
+export async function registerAction(data: SignupSchemaType) {
   try {
-    const res = await fetch(process.env.PUBLIC_URL + "/auth/login", {
+    const res = await fetch(process.env.PUBLIC_URL + "/auth/register", {
       headers: { "Content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),
     });
     if (!res.ok) throw new Error("Email ou senha Inválidos");
     const json = await res.json();
-    if (!json.token || typeof json.token !== "string") {
-      throw new Error("Token inválido recebido do servidor.");
-    }
-
     (await cookies()).set("token", json.token, {
       httpOnly: true,
       secure: true,
       maxAge: 60 * 60 * 24, // 1 dia
       sameSite: "lax",
-      path: "/",
     });
     return {
       message: null,
       ok: true,
     };
   } catch (error) {
-    console.error("Error no login " + error);
-    return {
-      ok: false,
-      message: error instanceof Error ? error.message : "erro no login",
-    };
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    }
   }
 }
