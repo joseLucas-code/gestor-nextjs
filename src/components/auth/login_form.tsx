@@ -62,7 +62,7 @@ export default function LoginForm() {
             ></FormField>
             <Link
               href="/password_lost"
-              className="w-fit self-end text-sm font-semibold"
+              className="w-fit self-end text-sm font-semibold hover:underline"
             >
               Esqueci minha senha
             </Link>
