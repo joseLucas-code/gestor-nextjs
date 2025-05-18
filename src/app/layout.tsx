@@ -10,11 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gestor-agendamentos.vercel.app/"),
   title: "Gestor - home",
   description: "Gestor de agendamentos criado para facilitar agendamentos",
   openGraph: {
     title: "Gestor de agendamentos",
-    description: "APlicação para facilitar o agendamento para buxas",
+    description: "Aplicação para facilitar o agendamento para buxas",
     images: "/og-img.jpg",
   },
 };
