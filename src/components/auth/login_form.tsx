@@ -75,10 +75,12 @@ export default function LoginForm() {
             <span>Ou</span>
             <Separator />
           </div>
-          <Button variant="outline">
-            <Aperture />
-            <span>Continuar com google</span>
-          </Button>
+          <Link href="https://api-gestor-agendamentos.up.railway.app/oauth2/authorization/google">
+            <Button variant="outline" className="w-full">
+              <Aperture />
+              <span>Continuar com google</span>
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </Form>
