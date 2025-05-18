@@ -23,7 +23,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {type === "password" && (
-            <span className="size-7" onClick={() => setIsVisible(!isVisible)}>
+            <span
+              className="size-7 cursor-pointer"
+              onClick={() => setIsVisible(!isVisible)}
+            >
               {isVisible ? (
                 <Eye className="size-full" />
               ) : (
