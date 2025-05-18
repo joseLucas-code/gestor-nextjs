@@ -13,9 +13,10 @@ import {
 import { Input } from "../ui/input/input";
 import { useRegisterController } from "./register.controller";
 import { Button } from "../ui/button";
+import { RegisterFormProps } from "./types";
 
-export default function RegisterForm() {
-  const { handleSubmit, form, formState } = useRegisterController();
+export default function RegisterForm({ setTabs }: RegisterFormProps) {
+  const { handleSubmit, form, formState } = useRegisterController({ setTabs });
   return (
     <Form {...form}>
       <Card>

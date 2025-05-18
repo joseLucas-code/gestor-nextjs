@@ -10,8 +10,11 @@ export async function registerAction(data: SignupSchemaType) {
       method: "POST",
       body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error("Email ou senha Inválidos");
+
     const json = await res.json();
+
+    if (!res.ok) throw new Error(json?.message || "Error no servidor");
+
     (await cookies()).set("token", json.token, {
       httpOnly: true,
       secure: true,
@@ -23,8 +26,10 @@ export async function registerAction(data: SignupSchemaType) {
       ok: true,
     };
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(error.message);
-    }
+    console.error("Error no registro " + error);
+    return {
+      ok: false,
+      message: error instanceof Error ? error.message : "Erro no registro",
+    };
   }
 }

@@ -10,8 +10,11 @@ export async function loginAction(data: SignInSchemaType) {
       method: "POST",
       body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error("Email ou senha Inválidos");
+
     const json = await res.json();
+
+    if (!res.ok) throw new Error(json?.message || "Error no servidor");
+
     if (!json.token || typeof json.token !== "string") {
       throw new Error("Token inválido recebido do servidor.");
     }

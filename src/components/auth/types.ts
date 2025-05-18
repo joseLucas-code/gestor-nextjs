@@ -1,4 +1,5 @@
 import { SignInSchemaType } from "@/schemas/signinSchema";
+import { Dispatch, SetStateAction } from "react";
 import { FormState, UseFormReturn } from "react-hook-form";
 
 export type LoginFormProps = {
@@ -18,4 +19,8 @@ export type LoginFormProps = {
     email: string;
     password: string;
   }>;
+};
+
+export type RegisterFormProps = {
+  setTabs: Dispatch<SetStateAction<string>>;
 };
