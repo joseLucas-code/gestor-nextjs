@@ -15,7 +15,7 @@ export function useLoginController() {
     },
   });
 
-  const onSubmit = async (data: SignInSchemaType) => {
+  const onSubmit = async (data: SignInSchemaType): Promise<void> => {
     try {
       const res = await loginAction(data);
 
