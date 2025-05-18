@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function PasswordResetPage() {
   return (
@@ -30,7 +30,9 @@ export default function PasswordResetPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <PasswordResetForm />
+            <Suspense>
+              <PasswordResetForm />
+            </Suspense>
           </CardContent>
         </Card>
       </AuthCard>

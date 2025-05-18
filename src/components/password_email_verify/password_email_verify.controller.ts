@@ -1,3 +1,5 @@
+"use client";
+
 import { passwordEmailVerifyAction } from "@/actions/password_email_verify";
 import passwordLostAction from "@/actions/password_lost";
 import {
@@ -9,12 +11,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { PasswordEmailVerifyFormProps } from "./types";
 
 export function usePasswordEmailVerifyController({
   email,
-}: {
-  email: string | null;
-}) {
+}: PasswordEmailVerifyFormProps) {
   const [canSendCode, setCanSendCode] = useState(true);
   const router = useRouter();
   const form = useForm<PasswordEmailVerifySchemaType>({

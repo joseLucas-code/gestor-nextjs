@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import {
   Form,
   FormControl,
@@ -11,12 +12,11 @@ import { usePasswordEmailVerifyController } from "./password_email_verify.contro
 import { Input } from "../ui/input/input";
 import { Lock } from "lucide-react";
 import { Button } from "../ui/button";
+import { PasswordEmailVerifyFormProps } from "./types";
 
 export default function PasswordEmailVerifyForm({
   email,
-}: {
-  email: string | null;
-}) {
+}: PasswordEmailVerifyFormProps) {
   const { form, handleSubmit, isSubmitting, SubmitCode } =
     usePasswordEmailVerifyController({ email });
   return (

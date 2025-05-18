@@ -1,6 +1,5 @@
-"use client";
-
 import PasswordEmailVerifyForm from "@/components/password_email_verify/password_email_verify_form";
+import { PasswordEmailVerifyPageProps } from "@/components/password_email_verify/types";
 import AuthCard from "@/components/ui/auth-card";
 import BackgroundBlur from "@/components/ui/bg-blur";
 import {
@@ -12,12 +11,12 @@ import {
 } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { redirect, useSearchParams } from "next/navigation";
-import React from "react";
+import { redirect } from "next/navigation";
 
-export default function PasswordEmailVerifyPage() {
-  const params = useSearchParams();
-  const email = params.get("email");
+export default async function PasswordEmailVerifyPage({
+  searchParams,
+}: PasswordEmailVerifyPageProps) {
+  const email = (await searchParams)?.email;
 
   if (!email) redirect("/");
   return (
