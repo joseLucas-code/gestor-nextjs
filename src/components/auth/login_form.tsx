@@ -1,6 +1,7 @@
 "use client";
 
 import { Aperture, Lock, Mail } from "lucide-react";
+import { signIn } from "next-auth/react";
 import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input/input";
 import Link from "next/link";
@@ -15,46 +16,10 @@ import {
   FormMessage,
 } from "../ui/form";
 import { useLoginController } from "./login.controller";
-import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const { handleSubmit, form, formState } = useLoginController();
-  const router = useRouter();
-  // Função para lidar com o login pelo Google
-  const handleGoogleLogin = async () => {
-    try {
-      // Abre a janela de autenticação do Google
-      const googleAuthWindow = window.open(
-        "https://api-gestor-agendamentos.up.railway.app/oauth2/authorization/google",
-        "_blank",
-        "width=500,height=600",
-      );
 
-      // Escuta mensagens do popup
-      const messageListener = (event: MessageEvent) => {
-        if (event.origin !== "https://api-gestor-agendamentos.up.railway.app") {
-          return;
-        }
-
-        if (event.data.type === "AUTH_SUCCESS") {
-          // Fecha a janela do popup
-          googleAuthWindow?.close();
-
-          // Redireciona para a página inicial ou dashboard
-          router.push("/");
-        }
-      };
-
-      window.addEventListener("message", messageListener);
-
-      // Limpa o listener quando o componente é desmontado
-      return () => {
-        window.removeEventListener("message", messageListener);
-      };
-    } catch (error) {
-      console.error("Erro no login com Google:", error);
-    }
-  };
   return (
     <Form {...form}>
       <Card>
@@ -116,7 +81,7 @@ export default function LoginForm() {
           <Button
             variant="outline"
             className="w-full"
-            onClick={handleGoogleLogin}
+            onClick={() => signIn("google")}
           >
             <Aperture />
             <span>Continuar com google</span>
