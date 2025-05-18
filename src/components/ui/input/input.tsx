@@ -23,13 +23,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {type === "password" && (
-            <button className="size-7" onClick={() => setIsVisible(!isVisible)}>
+            <span className="size-7" onClick={() => setIsVisible(!isVisible)}>
               {isVisible ? (
                 <Eye className="size-full" />
               ) : (
                 <EyeClosed className="size-full" />
               )}
-            </button>
+            </span>
           )}
         </label>
       </div>
