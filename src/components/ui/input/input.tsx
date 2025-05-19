@@ -13,7 +13,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className="shadow-default focus-within:border-primary/80 focus-within:bg-primary/10 relative flex w-full items-center gap-2 rounded-sm border-2 px-3 py-2 transition-[border,bg]"
           htmlFor={id}
         >
-          <IconName className="size-6 text-zinc-900" />
+          <IconName className="text-foreground size-6" />
           <input
             id={id}
             ref={ref}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
@@ -10,26 +10,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gestor-agendamentos.vercel.app/"),
-  title: "Gestor - home",
-  description: "Gestor de agendamentos criado para facilitar agendamentos",
-  icons: "./favicon.ico",
-  openGraph: {
-    title: "Gestor de agendamentos",
-    description: "Aplicação para facilitar o agendamento para buxas",
-    images: "/og-img.jpg",
-  },
+  title: "Gestor - Autenticação",
+  description: "Gestor de agendamentos - area para login",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} antialiased`}>
-        <main className="font-inter flex min-h-dvh">{children}</main>
+      <body className={`${inter.variable} dark antialiased`}>
+        <main className="font-inter flex min-h-dvh w-full">{children}</main>
         <Toaster
           toastOptions={{
             classNames: {
