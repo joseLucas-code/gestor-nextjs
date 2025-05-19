@@ -17,6 +17,7 @@
   --color-sidebar: var(--sidebar);
   --color-tabs-active: var(--tabs-active);
   --color-tabs-active-foreground: var(--tabs-active-foreground);
+  --color-tabs-border: var(--tabs-border);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -80,6 +81,7 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --tabs-active: #1d1a19;
   --tabs-active-foreground: #d9d9d9;
+  --tabs-border: #1d1919;
   --shadow-default: 0 2px 4px rgba(161, 161, 170, 0.5);
 }
 

@@ -10,7 +10,7 @@ export default function BottomTabs() {
     useBottomTabController();
   return (
     <>
-      <div className="border-border fixed bottom-2 left-1/2 z-20 -translate-x-1/2 rounded-md border px-5 py-1 lg:hidden">
+      <div className="border-tabs-border fixed bottom-2 left-1/2 z-20 -translate-x-1/2 rounded-md border px-5 py-2 lg:hidden">
         <div className="bg-card/10 flex items-center gap-4 backdrop-blur-md">
           {tabMenu.map((menu, index) => (
             <Link
