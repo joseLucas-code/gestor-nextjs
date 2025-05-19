@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Button } from "../button";
 import { X } from "lucide-react";
 import { BottomTabContentProps } from "./types";
@@ -8,7 +8,10 @@ export default function BottomTabContent({
   onClose,
   activePath,
 }: BottomTabContentProps) {
-  const activeTab = tabMenu.find((tab) => tab.path === activePath);
+  const activeTab = useMemo(
+    () => tabMenu.find((tab) => tab.path === activePath),
+    [activePath],
+  );
   if (!activeTab) return null;
   return (
     <div className="bg-background fixed inset-0 z-10 overflow-y-auto p-2 lg:hidden">

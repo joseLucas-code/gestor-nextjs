@@ -3,11 +3,11 @@ import SideBar from "@/components/ui/sidebar/sidebar";
 import BottomTabs from "@/components/ui/bottom-tab/bottom-tab";
 
 export const metadata: Metadata = {
-  title: "Gestor - home",
+  title: "Gestor - Home",
   description: "Gestor de agendamentos - tela inicial",
 };
 
-export default function RootLayout({
+export default function PublicLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
