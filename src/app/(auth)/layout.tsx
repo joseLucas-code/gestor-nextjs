@@ -10,9 +10,5 @@ export default function AuthLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html>
-      <body>{children}</body>
-    </html>
-  );
+  return <main className="font-inter flex min-h-dvh">{children}</main>;
 }

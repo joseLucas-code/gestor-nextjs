@@ -28,8 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} antialiased`}>
-        <main className="font-inter flex min-h-dvh">{children}</main>
+      <body className={`${inter.variable} gap-4 antialiased`}>
+        {children}
         <Toaster
           toastOptions={{
             classNames: {
