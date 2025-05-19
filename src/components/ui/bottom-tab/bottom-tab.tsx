@@ -2,29 +2,15 @@
 
 import Link from "next/link";
 import { tabMenu } from "./menu.constants";
-import { useState } from "react";
 import BottomTabContent from "./bottom-tab-content";
+import { useBottomTabController } from "./bottom_tab.controller";
 
 export default function BottomTabs() {
-  const [activePath, setActivePath] = useState("home");
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleTabClick = (path: string) => {
-    setActivePath(path);
-    if (path !== "home") {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  };
-
-  const closePanel = () => {
-    setIsOpen(false);
-    setActivePath("home");
-  };
+  const { activePath, closePanel, handleTabClick, isOpen } =
+    useBottomTabController();
   return (
     <>
-      <div className="border-border fixed bottom-2 left-1/2 z-20 -translate-x-1/2 rounded-md border px-4 py-1 lg:hidden">
+      <div className="border-border fixed bottom-2 left-1/2 z-20 -translate-x-1/2 rounded-md border px-5 py-1 lg:hidden">
         <div className="bg-card/10 flex items-center gap-4 backdrop-blur-md">
           {tabMenu.map((menu, index) => (
             <Link
