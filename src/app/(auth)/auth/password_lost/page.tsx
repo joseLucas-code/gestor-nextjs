@@ -1,4 +1,4 @@
-import PasswordResetForm from "@/components/password_reset/password_reset_form";
+import PasswordLostForm from "@/components/password-lost/password-lost-form";
 import AuthCard from "@/components/ui/auth-card";
 import BackgroundBlur from "@/components/ui/bg-blur";
 import {
@@ -10,29 +10,27 @@ import {
 } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import React, { Suspense } from "react";
+import React from "react";
 
-export default function PasswordResetPage() {
+export default function PasswordLostPage() {
   return (
     <BackgroundBlur>
       <AuthCard>
         <Card>
           <CardHeader className="space-y-6">
-            <Link href={"/password_lost"} className="flex items-center gap-1">
+            <Link href={"/auth"} className="flex items-center gap-1">
               <ChevronLeft />
               Voltar
             </Link>
             <div className="space-y-1">
-              <CardTitle className="text-2xl">Resete sua senha</CardTitle>
-              <CardDescription className="leading-6">
-                Confirme abaixo sua nova senha
+              <CardTitle className="text-2xl">Esqueci minha senha</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor met xesquedele
               </CardDescription>
             </div>
           </CardHeader>
           <CardContent>
-            <Suspense>
-              <PasswordResetForm />
-            </Suspense>
+            <PasswordLostForm />
           </CardContent>
         </Card>
       </AuthCard>

@@ -20,7 +20,7 @@ export function usePasswordLostController() {
   const onSubmit = async (data: PasswordLostSchemaType) => {
     const response = await passwordLostAction(data.email);
     toast.success(response?.message);
-    router.push(`/password_email_verify?email=${data.email}`);
+    router.push(`/auth/password_email_verify?email=${data.email}`);
   };
 
   return {

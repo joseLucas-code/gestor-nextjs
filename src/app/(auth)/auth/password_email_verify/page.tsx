@@ -24,7 +24,10 @@ export default async function PasswordEmailVerifyPage({
       <AuthCard>
         <Card>
           <CardHeader className="space-y-6">
-            <Link href={"/password_lost"} className="flex items-center gap-1">
+            <Link
+              href={"/auth/password_lost"}
+              className="flex items-center gap-1"
+            >
               <ChevronLeft />
               Voltar
             </Link>

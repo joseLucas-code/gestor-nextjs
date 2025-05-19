@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,6 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gestor-agendamentos.vercel.app/"),
   title: "Gestor - home",
   description: "Gestor de agendamentos criado para facilitar agendamentos",
+  icons: "/favicon.ico",
   openGraph: {
     title: "Gestor de agendamentos",
     description: "Aplicação para facilitar o agendamento para buxas",
@@ -27,8 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} antialiased`}>
-        <main className="font-inter flex min-h-dvh">{children}</main>
+      <body className={`${inter.variable} gap-4 antialiased`}>
+        {children}
         <Toaster
           toastOptions={{
             classNames: {
