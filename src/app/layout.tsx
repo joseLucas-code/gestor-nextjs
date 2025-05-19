@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gestor-agendamentos.vercel.app/"),
   title: "Gestor - home",
   description: "Gestor de agendamentos criado para facilitar agendamentos",
-  icons: "./favicon.ico",
+  icons: "/favicon.ico",
   openGraph: {
     title: "Gestor de agendamentos",
     description: "Aplicação para facilitar o agendamento para buxas",
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR">
       <body className={`${inter.variable} antialiased`}>
         <main className="font-inter flex min-h-dvh">{children}</main>
         <Toaster

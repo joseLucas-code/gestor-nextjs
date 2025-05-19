@@ -18,7 +18,7 @@ export default function PasswordLostPage() {
       <AuthCard>
         <Card>
           <CardHeader className="space-y-6">
-            <Link href={"/"} className="flex items-center gap-1">
+            <Link href={"/auth"} className="flex items-center gap-1">
               <ChevronLeft />
               Voltar
             </Link>
