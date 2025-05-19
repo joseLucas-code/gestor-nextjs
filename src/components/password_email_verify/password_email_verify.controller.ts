@@ -34,7 +34,7 @@ export function usePasswordEmailVerifyController({
         });
         if (!response.ok) throw new Error(response.message);
         toast.success("Codigo verificado com sucesso!");
-        router.replace(`/password_reset?reset_token=${response?.token}`);
+        router.replace(`/auth/password_reset?reset_token=${response?.token}`);
       } catch (error) {
         if (error instanceof Error) {
           toast.error(error.message);

@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} antialiased`}>
         <main className="font-inter flex min-h-dvh">{children}</main>
         <Toaster

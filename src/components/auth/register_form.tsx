@@ -115,7 +115,7 @@ export default function RegisterForm({ setTabs }: RegisterFormProps) {
               )}
             />
             <Button
-              className="mt-10"
+              className="mt-4"
               type="submit"
               disabled={formState.isSubmitting}
             >

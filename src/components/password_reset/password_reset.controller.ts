@@ -31,7 +31,7 @@ export function usePasswordResetController({
         });
         if (!response?.ok) throw new Error(response?.message);
         toast.success("Senha resetada com sucesso");
-        router.replace("/");
+        router.replace("/auth");
       } catch (error) {
         if (error instanceof Error) {
           toast.error(error.message);
