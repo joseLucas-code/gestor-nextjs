@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SideBar from "@/components/ui/sidebar/sidebar";
 import BottomTabs from "@/components/ui/bottom-tab/bottom-tab";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const metadata: Metadata = {
   title: "Gestor - Home",
@@ -15,7 +16,9 @@ export default function PublicLayout({
   return (
     <div className="flex gap-4">
       <SideBar />
-      <main className="font-inter flex min-h-dvh">{children}</main>
+      <ScrollArea className="h-dvh w-full">
+        <main className="font-inter flex-1">{children}</main>
+      </ScrollArea>
       <BottomTabs />
     </div>
   );
