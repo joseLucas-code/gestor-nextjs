@@ -1,7 +1,7 @@
 import { homeSchema } from "@/schemas/homeSchema";
 import React from "react";
 import Banner from "./banner";
-import { homeFetch } from "@/api/homeFetch";
+import { homeFetch } from "@/actions/homeFetch";
 import HomeList from "./home_list";
 
 export default async function HomeContent() {
@@ -27,8 +27,14 @@ export default async function HomeContent() {
   }
   return (
     <div className="relative pb-20">
-      <Banner banner={parsed.data.banner} />
-      <HomeList services={parsed.data.services} />
+      <Banner
+        banner={parsed.data.banner}
+        opening_hours={parsed.data.opening_hours}
+      />
+      <HomeList
+        services={parsed.data.services}
+        opening_hours={parsed.data.opening_hours}
+      />
     </div>
   );
 }

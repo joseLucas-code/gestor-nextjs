@@ -88,7 +88,7 @@
   --tabs-active: #1d1a19;
   --tabs-active-foreground: #d9d9d9;
   --tabs-border: #1d1919;
-  --shadow-default: 0 2px 4px rgba(161, 161, 170, 0.5);
+  --shadow-default: 0 2px 2px rgba(161, 161, 170, 0.5);
 }
 
 .dark {

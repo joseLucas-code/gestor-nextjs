@@ -13,7 +13,7 @@ export function useHomeItemController({
 
   function priceWithDiscount() {
     return formatedPrice(
-      (Number(price) * (Number(discount_percentage) / 100)).toString(),
+      (Number(price) * (1 - Number(discount_percentage) / 100)).toString(),
     );
   }
 
