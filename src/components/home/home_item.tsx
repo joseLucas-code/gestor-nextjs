@@ -10,7 +10,7 @@ export default function HomeServiceItem({ service }: HomeServiceItemProps) {
     discount_percentage: service.discount_percentage,
   });
   return (
-    <article className="relative flex aspect-square justify-center overflow-hidden rounded-lg border">
+    <article className="relative flex aspect-square grow-0 basis-[19rem] justify-center overflow-hidden rounded-lg border">
       <Image
         src={service.image ?? ""}
         alt="Imagem do serviço"
