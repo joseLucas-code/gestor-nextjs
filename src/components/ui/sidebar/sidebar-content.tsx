@@ -11,7 +11,7 @@ export const SideBarContent = forwardRef<HTMLDivElement, SideBarContentProps>(
       <div
         ref={ref}
         data-collapsed={isCollapsed}
-        className="bg-sidebar shadow-ring fixed top-0 -left-full z-10 hidden h-full w-60 flex-col gap-2 p-2 shadow-sm transition-all data-[collapsed=true]:left-14 lg:flex"
+        className="bg-sidebar shadow-ring fixed top-0 -left-full z-50 hidden h-full w-60 flex-col gap-2 p-2 shadow-sm transition-all data-[collapsed=true]:left-14 lg:flex"
       >
         <div className="flex justify-end">
           <Button variant="outline" onClick={onClose}>
