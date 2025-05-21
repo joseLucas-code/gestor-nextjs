@@ -18,7 +18,7 @@ export default async function HomeContent() {
   const parsed = homeSchema.safeParse(json);
 
   if (!parsed.success) {
-    console.error("Erro de validação:", parsed.error.flatten());
+    console.error("Erro de validação:", parsed.error.format());
     return (
       <div className="py-8 text-center">
         Dados inválidos recebidos do servidor.
