@@ -2,8 +2,13 @@ import Image from "next/image";
 import { HomeServiceItemProps } from "./types";
 import { ShoppingCart, StarIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { useHomeItemController } from "./home_item.controller";
 
 export default function HomeServiceItem({ service }: HomeServiceItemProps) {
+  const { formatedPrice, priceWithDiscount } = useHomeItemController({
+    price: service.price,
+    discount_percentage: service.discount_percentage,
+  });
   return (
     <article className="relative flex aspect-square justify-center overflow-hidden rounded-lg border">
       <Image
@@ -27,7 +32,18 @@ export default function HomeServiceItem({ service }: HomeServiceItemProps) {
               <span>200 vendas</span>
             </div>
 
-            <span className="font-medium">R$ {service.price}</span>
+            <span className="font-medium">
+              {Number(service.discount_percentage) ? (
+                <span className="flex gap-1">
+                  <span className="font-regular text-popover-secondary-muted text-xs line-through">
+                    {formatedPrice()}
+                  </span>
+                  {priceWithDiscount()}
+                </span>
+              ) : (
+                <span>{formatedPrice()}</span>
+              )}
+            </span>
           </div>
 
           {/* right column */}

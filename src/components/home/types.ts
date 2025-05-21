@@ -11,3 +11,8 @@ export type HomeListProps = {
 export type HomeServiceItemProps = {
   service: HomeSchemaType["services"][number];
 };
+
+export type HomeItemControllerPriceProps = {
+  price: string;
+  discount_percentage: string;
+};
