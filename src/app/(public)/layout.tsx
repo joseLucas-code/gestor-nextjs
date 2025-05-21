@@ -14,10 +14,10 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 lg:pr-4">
       <SideBar />
-      <ScrollArea className="h-dvh w-full">
-        <main className="font-inter flex-1">{children}</main>
+      <ScrollArea className="flex h-dvh w-full lg:pt-4">
+        <main className="mx-auto max-w-7xl flex-1">{children}</main>
       </ScrollArea>
       <BottomTabs />
     </div>

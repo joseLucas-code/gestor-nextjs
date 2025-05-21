@@ -4,14 +4,8 @@ import { BannerProps } from "./types";
 
 export default function Banner({ banner }: BannerProps) {
   return (
-    <article className="relative aspect-video">
-      <Image
-        src={banner ?? ""}
-        alt="Banner"
-        width={800}
-        height={400}
-        className="w-full rounded-md object-cover"
-      />
+    <article className="flex max-h-72 w-full items-center justify-center overflow-hidden lg:rounded-md">
+      <Image src={banner ?? ""} alt="Banner" width={1280} height={320} />
     </article>
   );
 }

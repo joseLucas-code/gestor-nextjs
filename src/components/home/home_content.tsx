@@ -28,7 +28,7 @@ export default async function HomeContent() {
   return (
     <div className="relative">
       <Banner banner={parsed.data.banner} />
-      <HomeList services={parsed.data.services} />
+      {/* <HomeList services={parsed.data.services} /> */}
     </div>
   );
 }
