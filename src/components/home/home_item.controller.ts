@@ -4,14 +4,11 @@ export function useHomeItemController({
   price,
   discount_percentage,
 }: HomeItemControllerPriceProps) {
-  function formatedPrice(Internalprice?: string) {
-    return Number(Internalprice ? Internalprice : price).toLocaleString(
-      "pt-br",
-      {
-        style: "currency",
-        currency: "BRL",
-      },
-    );
+  function formatedPrice(propsPrice?: string) {
+    return Number(propsPrice ? propsPrice : price).toLocaleString("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    });
   }
 
   function priceWithDiscount() {
