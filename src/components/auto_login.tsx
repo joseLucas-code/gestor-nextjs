@@ -8,16 +8,9 @@ export default function AutoLogin() {
   useEffect(() => {
     if (!isLogged) {
       const autoLogin = async () => {
-        try {
-          const response = await getUserAction();
-          if (!response.ok) throw new Error("Error: " + response.message);
-          if (response.data) {
-            setUser(response.data);
-          }
-        } catch (error) {
-          if (error instanceof Error) {
-            console.error(error.message);
-          }
+        const response = await getUserAction();
+        if (response.ok && response.data) {
+          setUser(response.data);
         }
       };
       autoLogin();
