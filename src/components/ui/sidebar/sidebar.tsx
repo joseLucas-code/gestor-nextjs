@@ -24,7 +24,7 @@ export default function SideBar() {
     <>
       <aside
         data-collapsed={isCollapsed}
-        className="bg-sidebar shadow-sidebar-ring relative z-20 hidden w-14 flex-col gap-5 px-2 py-3 shadow-sm transition-[width] data-[collapsed=false]:w-56 data-[collapsed=false]:px-3 lg:flex"
+        className="bg-sidebar shadow-sidebar-ring relative z-20 hidden w-14 flex-col gap-5 px-2 py-3 shadow-sm transition-[width] duration-100 data-[collapsed=false]:w-56 data-[collapsed=false]:px-3 lg:flex"
       >
         {/* Header */}
         <div
