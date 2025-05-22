@@ -5,6 +5,9 @@ export function useHomeItemController({
   discount_percentage,
 }: HomeItemControllerPriceProps) {
   function formatedPrice(propsPrice?: string) {
+    if (Number(price) === 0 && discount_percentage === "100") {
+      return "Gratis";
+    }
     return Number(propsPrice ? propsPrice : price).toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
@@ -12,6 +15,9 @@ export function useHomeItemController({
   }
 
   function priceWithDiscount() {
+    if (discount_percentage === "100") {
+      return "Gratis";
+    }
     return formatedPrice(
       (Number(price) * (1 - Number(discount_percentage) / 100)).toString(),
     );
