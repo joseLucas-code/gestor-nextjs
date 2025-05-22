@@ -4,6 +4,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import AutoLogin from "@/components/auto_login";
+import { Suspense } from "react";
+import LoginLoading from "@/components/login_loading";
 
 config.autoAddCss = false;
 
@@ -42,6 +45,9 @@ export default function RootLayout({
             },
           }}
         />
+        <Suspense fallback={<LoginLoading />}>
+          <AutoLogin />
+        </Suspense>
       </body>
     </html>
   );

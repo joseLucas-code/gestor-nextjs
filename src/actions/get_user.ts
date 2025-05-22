@@ -2,6 +2,7 @@
 
 import { userSchema } from "@/schemas/userSchema";
 import { cookies } from "next/headers";
+import logoutAction from "./logout";
 
 export async function getUserAction() {
   const token = (await cookies()).get("token")?.value;
@@ -11,6 +12,9 @@ export async function getUserAction() {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
+        },
+        next: {
+          revalidate: 60,
         },
       });
       const data = await response.json();
@@ -27,6 +31,7 @@ export async function getUserAction() {
         throw new Error("Error de validação dos dados");
       }
     } catch (error) {
+      await logoutAction();
       return {
         data: null,
         message:
